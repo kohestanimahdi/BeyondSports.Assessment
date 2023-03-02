@@ -6,6 +6,8 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UserSecretsId>9dd6028d-9928-4163-aa40-43a27ea954d7</UserSecretsId>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile>BeyondSports.Assessment.API.xml</DocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -22,6 +24,12 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\BeyondSports.Assessment.Application\BeyondSports.Assessment.Application.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="BeyondSports_Assessment_Database.db">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
 
 </Project>

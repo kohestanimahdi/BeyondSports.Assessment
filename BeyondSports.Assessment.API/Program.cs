@@ -1,4 +1,7 @@
 
+using BeyondSports.Assessment.API.Configuration;
+using BeyondSports.Assessment.Infrastructure.Persistance;
+
 namespace BeyondSports.Assessment.Application
 {
     public class Program
@@ -12,7 +15,16 @@ namespace BeyondSports.Assessment.Application
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+
+            builder.Services.WithSwagger();
+
+            builder.Services.WithDbContext(builder.Configuration);
+
+            builder.Services.WithUnitOfWorks();
+
+            builder.Services.WithDataInitializerServices();
+
+            builder.Services.WithDomainServices();
 
             var app = builder.Build();
 
@@ -31,6 +43,11 @@ namespace BeyondSports.Assessment.Application
             app.MapControllers();
 
             app.Run();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.EnsureCreated();
+            }
         }
     }
 }
