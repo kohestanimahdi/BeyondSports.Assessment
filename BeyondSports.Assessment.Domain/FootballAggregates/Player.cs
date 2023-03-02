@@ -9,6 +9,9 @@
 
         public uint? TeamId { get; set; }
         public Team Team { get; set; }
-        public List<PlayerTransfer> PlayerTransfers { get; set; }
+        public List<PlayerTransfer> PlayerTransfers
+        {
+            get; set;
+
+        }
     }
-}
