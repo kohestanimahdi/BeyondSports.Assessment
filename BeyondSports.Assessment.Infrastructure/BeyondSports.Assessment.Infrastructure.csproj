@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BeyondSports.Assessment.Domain\BeyondSports.Assessment.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

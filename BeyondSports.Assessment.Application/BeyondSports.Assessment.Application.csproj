@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BeyondSports.Assessment.Infrastructure\BeyondSports.Assessment.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
