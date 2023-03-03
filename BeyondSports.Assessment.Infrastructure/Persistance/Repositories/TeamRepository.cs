@@ -28,5 +28,8 @@ namespace BeyondSports.Assessment.Infrastructure.Persistance.Repositories
 
         public Task<List<Player>> GetPlayersOfTeamAsync(uint teamId, CancellationToken cancellationToken = default)
             => _dbContext.Players.Where(i => i.TeamId == teamId).ToListAsync(cancellationToken);
+
+        public Task<List<Team>> GetTeamsAsync(CancellationToken cancellationToken = default)
+            => _dbContext.Teams.ToListAsync(cancellationToken);
     }
 }

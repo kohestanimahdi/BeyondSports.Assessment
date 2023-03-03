@@ -23,5 +23,11 @@ namespace BeyondSports.Assessment.Application.DomainServices.TeamServices
             var response = await _teamRepository.GetPlayersOfTeamAsync(teamId, cancellationToken);
             return response.ConvertAll(i => new PlayerResponseDto(i));
         }
+
+        public async Task<List<TeamResponseDto>> GetTeamsAsync(CancellationToken cancellationToken = default)
+        {
+            var response = await _teamRepository.GetTeamsAsync(cancellationToken);
+            return response.ConvertAll(i => new TeamResponseDto(i));
+        }
     }
 }

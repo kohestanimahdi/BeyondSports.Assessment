@@ -17,6 +17,15 @@ namespace BeyondSports.Assessment.API.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(List<TeamResponseDto>), (int)System.Net.HttpStatusCode.OK)]
+        public async Task<IActionResult> GetTeamsAsync(CancellationToken cancellationToken = default)
+        {
+            var teams = await _teamService.GetTeamsAsync(cancellationToken);
+
+            return Ok(teams);
+        }
+
+        [HttpGet]
         [Route("{teamId}/Players")]
         [ProducesResponseType(typeof(List<PlayerResponseDto>), (int)System.Net.HttpStatusCode.OK)]
         public async Task<IActionResult> GetPlayersOfTeamAsync([FromRoute] uint teamId, CancellationToken cancellationToken = default)

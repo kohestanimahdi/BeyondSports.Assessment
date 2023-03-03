@@ -1,10 +1,5 @@
 ﻿using BeyondSports.Assessment.Domain.FootballAggregates;
 using BeyondSports.Assessment.Infrastructure.Persistance.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BeyondSports.Assessment.Infrastructure.Persistance.DataInitializer
 {
@@ -57,7 +52,7 @@ namespace BeyondSports.Assessment.Infrastructure.Persistance.DataInitializer
                 },
                 new Team
                 {
-                    Title = "Real Madrid",
+                    Title = "Manchester United",
                     Players = new List<Player>
                     {
                         new Player

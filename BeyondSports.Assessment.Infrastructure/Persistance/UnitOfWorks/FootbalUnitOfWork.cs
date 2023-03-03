@@ -8,11 +8,11 @@ namespace BeyondSports.Assessment.Infrastructure.Persistance.UnitOfWorks
 {
     public class FootbalUnitOfWork : IFootbalUnitOfWork
     {
-        private readonly ApplicationDbContext dbContext;
+        private readonly ApplicationDbContext _dbContext;
 
         public FootbalUnitOfWork(ApplicationDbContext dbContext)
         {
-            this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
     }
 }
