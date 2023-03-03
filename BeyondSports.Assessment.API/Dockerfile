@@ -7,7 +7,13 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
+COPY ["BeyondSports.Assessment.Domain/BeyondSports.Assessment.Domain.csproj", "BeyondSports.Assessment.Domain/"]
+COPY ["BeyondSports.Assessment.Infrastructure/BeyondSports.Assessment.Infrastructure.csproj", "BeyondSports.Assessment.Infrastructure/"]
+COPY ["BeyondSports.Assessment.Application/BeyondSports.Assessment.Application.csproj", "BeyondSports.Assessment.Application/"]
 COPY ["BeyondSports.Assessment.API/BeyondSports.Assessment.API.csproj", "BeyondSports.Assessment.API/"]
+RUN dotnet restore "BeyondSports.Assessment.Domain/BeyondSports.Assessment.Domain.csproj"
+RUN dotnet restore "BeyondSports.Assessment.Infrastructure/BeyondSports.Assessment.Infrastructure.csproj"
+RUN dotnet restore "BeyondSports.Assessment.Application/BeyondSports.Assessment.Application.csproj"
 RUN dotnet restore "BeyondSports.Assessment.API/BeyondSports.Assessment.API.csproj"
 COPY . .
 WORKDIR "/src/BeyondSports.Assessment.API"
