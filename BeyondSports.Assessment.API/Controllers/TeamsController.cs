@@ -60,10 +60,26 @@ namespace BeyondSports.Assessment.API.Controllers
         /// <returns></returns>
         [HttpPatch]
         [Route("AssignPlayer")]
-        [ProducesResponseType(typeof(ApiResult<List<PlayerResponseDto>>), (int)System.Net.HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ApiResult), (int)System.Net.HttpStatusCode.OK)]
         public async Task<IActionResult> AssignPlayerToTeamAsync([FromBody] AssignPlayerToTeamRequestModel requestModel, CancellationToken cancellationToken = default)
         {
             await _teamService.AssignPlayerToTeamAsync(requestModel.TeamId, requestModel.PlayerId, cancellationToken);
+
+            return Ok();
+        }
+
+        /// <summary>
+        /// unassign a player from a team
+        /// </summary>
+        /// <param name="requestModel"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        [Route("UnAssignPlayer")]
+        [ProducesResponseType(typeof(ApiResult), (int)System.Net.HttpStatusCode.OK)]
+        public async Task<IActionResult> UnAssignPlayerFromTeamAsync([FromBody] AssignPlayerToTeamRequestModel requestModel, CancellationToken cancellationToken = default)
+        {
+            await _teamService.UnAssignPlayerFromTeamAsync(requestModel.TeamId, requestModel.PlayerId, cancellationToken);
 
             return Ok();
         }

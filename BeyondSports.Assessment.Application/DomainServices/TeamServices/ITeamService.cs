@@ -7,5 +7,6 @@ namespace BeyondSports.Assessment.Application.DomainServices.TeamServices
         Task AssignPlayerToTeamAsync(uint teamId, uint playerId, CancellationToken cancellationToken = default);
         Task<List<PlayerResponseDto>> GetPlayersOfTeamAsync(uint teamId, CancellationToken cancellationToken = default);
         Task<List<TeamResponseDto>> GetTeamsAsync(CancellationToken cancellationToken = default);
+        Task UnAssignPlayerFromTeamAsync(uint teamId, uint playerId, CancellationToken cancellationToken);
     }
 }

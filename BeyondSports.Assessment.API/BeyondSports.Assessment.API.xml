@@ -52,5 +52,13 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
+        <member name="M:BeyondSports.Assessment.API.Controllers.TeamsController.UnAssignPlayerFromTeamAsync(BeyondSports.Assessment.API.Models.RequestModels.AssignPlayerToTeamRequestModel,System.Threading.CancellationToken)">
+            <summary>
+            unassign a player from a team
+            </summary>
+            <param name="requestModel"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

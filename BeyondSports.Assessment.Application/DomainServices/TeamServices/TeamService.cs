@@ -46,5 +46,18 @@ namespace BeyondSports.Assessment.Application.DomainServices.TeamServices
 
             await _playerReporitory.UpdatePlayerAsync(player, cancellationToken);
         }
+
+        public async Task UnAssignPlayerFromTeamAsync(uint teamId, uint playerId, CancellationToken cancellationToken)
+        {
+            var player = await _playerReporitory.GetPlayerAsync(playerId, cancellationToken);
+            if (player is null)
+                throw new NotFoundException("Player is not found");
+
+            if (!player.TeamId.HasValue)
+                throw new AppException(Domain.Common.ApiResultStatusCode.BadRequest, "This player is not assigned to any team");
+
+            player.TeamId = null;
+            await _playerReporitory.UpdatePlayerAsync(player, cancellationToken);
+        }
     }
 }
