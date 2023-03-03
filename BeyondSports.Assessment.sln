@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeyondSports.Assessment.Dom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeyondSports.Assessment.Infrastructure", "BeyondSports.Assessment.Infrastructure\BeyondSports.Assessment.Infrastructure.csproj", "{1024BA12-2A1C-474E-B502-D63664A4E7C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeyondSports.Assessment.Application", "BeyondSports.Assessment.Application\BeyondSports.Assessment.Application.csproj", "{479ED232-00F8-4C82-BE65-19639B9517D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeyondSports.Assessment.Application", "BeyondSports.Assessment.Application\BeyondSports.Assessment.Application.csproj", "{479ED232-00F8-4C82-BE65-19639B9517D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

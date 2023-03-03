@@ -1,4 +1,5 @@
-﻿using BeyondSports.Assessment.Infrastructure.Persistance;
+﻿using BeyondSports.Assessment.Application.DomainServices.TeamServices;
+using BeyondSports.Assessment.Infrastructure.Persistance;
 using BeyondSports.Assessment.Infrastructure.Persistance.UnitOfWorks;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -44,7 +45,10 @@ namespace BeyondSports.Assessment.API.Configuration
 
         public static IServiceCollection WithDomainServices(this IServiceCollection services)
         {
-            //services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ITeamService, TeamService>();
+
+            services.WithReporitories();
+
             return services;
         }
     }

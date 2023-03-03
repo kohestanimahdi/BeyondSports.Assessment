@@ -28,6 +28,11 @@ namespace BeyondSports.Assessment.Application
 
             var app = builder.Build();
 
+            using (var scope = app.Services.CreateScope())
+            {
+                scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.EnsureCreated();
+            }
+
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -44,10 +49,7 @@ namespace BeyondSports.Assessment.Application
 
             app.Run();
 
-            using (var scope = app.Services.CreateScope())
-            {
-                scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.EnsureCreated();
-            }
+
         }
     }
 }
