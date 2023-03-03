@@ -6,6 +6,7 @@ namespace BeyondSports.Assessment.Infrastructure.Persistance.Repositories
     {
         void AddRangeTeams(List<Team> teams);
         Task<List<Player>> GetPlayersOfTeamAsync(uint teamId, CancellationToken cancellationToken = default);
+        Task<Team> GetTeamAsync(uint id, CancellationToken cancellationToken = default);
         Task<List<Team>> GetTeamsAsync(CancellationToken cancellationToken = default);
         bool IsAnyTeamExists();
     }
