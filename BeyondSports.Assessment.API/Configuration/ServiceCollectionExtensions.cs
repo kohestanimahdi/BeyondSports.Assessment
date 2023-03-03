@@ -1,5 +1,6 @@
 ﻿using BeyondSports.Assessment.Application.DomainServices.TeamServices;
 using BeyondSports.Assessment.Infrastructure.Persistance;
+using BeyondSports.Assessment.Infrastructure.Persistance.DataInitializer;
 using BeyondSports.Assessment.Infrastructure.Persistance.UnitOfWorks;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -39,7 +40,7 @@ namespace BeyondSports.Assessment.API.Configuration
 
         public static IServiceCollection WithDataInitializerServices(this IServiceCollection services)
         {
-            //services.AddScoped<IDataInitializer, ProductDataInitializer>();
+            services.AddScoped<IDataInitializer, TeamDataInitializer>();
             return services;
         }
 

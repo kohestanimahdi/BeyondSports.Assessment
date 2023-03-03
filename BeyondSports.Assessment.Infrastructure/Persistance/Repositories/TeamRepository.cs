@@ -17,6 +17,15 @@ namespace BeyondSports.Assessment.Infrastructure.Persistance.Repositories
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
+        public bool IsAnyTeamExists()
+            => _dbContext.Teams.Any();
+
+        public void AddRangeTeams(List<Team> teams)
+        {
+            _dbContext.Teams.AddRange(teams);
+            _dbContext.SaveChanges();
+        }
+
         public Task<List<Player>> GetPlayersOfTeamAsync(uint teamId, CancellationToken cancellationToken = default)
             => _dbContext.Players.Where(i => i.TeamId == teamId).ToListAsync(cancellationToken);
     }

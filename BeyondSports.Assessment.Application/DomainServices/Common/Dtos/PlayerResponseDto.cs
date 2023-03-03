@@ -1,4 +1,5 @@
-﻿using BeyondSports.Assessment.Domain.FootballAggregates;
+﻿using BeyondSports.Assessment.Domain.Common;
+using BeyondSports.Assessment.Domain.FootballAggregates;
 
 namespace BeyondSports.Assessment.Application.DomainServices.Common.Dtos
 {
@@ -14,7 +15,7 @@ namespace BeyondSports.Assessment.Application.DomainServices.Common.Dtos
             Id = player.Id;
             Name = player.Name;
             HeightInCentimeter = player.HeightInCentimeter;
-            Age = DateOnly.FromDateTime(DateTime.Now).DayNumber - player.BirthDate.DayNumber;
+            Age = DateTimeHelper.GetYears(player.BirthDate.ToDateTime(TimeOnly.MinValue), DateTime.Now);
         }
     }
 }
