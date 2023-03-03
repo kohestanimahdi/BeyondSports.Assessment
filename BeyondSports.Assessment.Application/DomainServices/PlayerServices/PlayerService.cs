@@ -1,4 +1,5 @@
 ﻿using BeyondSports.Assessment.Application.DomainServices.Common.Dtos;
+using BeyondSports.Assessment.Application.DomainServices.PlayerServices.Models;
 using BeyondSports.Assessment.Domain.Exceptions;
 using BeyondSports.Assessment.Infrastructure.Persistance.Repositories;
 using System;
@@ -23,6 +24,14 @@ namespace BeyondSports.Assessment.Application.DomainServices.PlayerServices
             var player = await _playerReporitory.GetPlayerAsync(id, cancellationToken);
             if (player is null)
                 throw new NotFoundException("Player is not found");
+
+            return new PlayerResponseDto(player);
+        }
+
+        public async Task<PlayerResponseDto> CreatePlayerAsync(AddPlayerRequestDto requestDto, CancellationToken cancellationToken = default)
+        {
+            var player = requestDto.MapToPlayer();
+            await _playerReporitory.AddPlayerAsync(player, cancellationToken);
 
             return new PlayerResponseDto(player);
         }

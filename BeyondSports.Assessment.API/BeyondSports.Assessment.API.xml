@@ -12,6 +12,14 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
+        <member name="M:BeyondSports.Assessment.API.Controllers.PlayersController.AddPlayerAsync(BeyondSports.Assessment.API.Models.RequestModels.AddPlayerRequest,System.Threading.CancellationToken)">
+            <summary>
+            add a player
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
         <member name="M:BeyondSports.Assessment.API.Controllers.TeamsController.GetTeamsAsync(System.Threading.CancellationToken)">
             <summary>
             get the list of the teams

@@ -1,4 +1,5 @@
 ﻿using BeyondSports.Assessment.API.Configuration.Filters;
+using BeyondSports.Assessment.API.Models.RequestModels;
 using BeyondSports.Assessment.Application.DomainServices.Common.Dtos;
 using BeyondSports.Assessment.Application.DomainServices.PlayerServices;
 using BeyondSports.Assessment.Domain.Common;
@@ -30,6 +31,21 @@ namespace BeyondSports.Assessment.API.Controllers
         public async Task<IActionResult> GetPlayerAsync(uint id, CancellationToken cancellationToken = default)
         {
             var player = await _playerService.GetPlayerAsync(id, cancellationToken);
+
+            return Ok(player);
+        }
+
+        /// <summary>
+        /// add a player
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ProducesResponseType(typeof(ApiResult<PlayerResponseDto>), (int)System.Net.HttpStatusCode.OK)]
+        public async Task<IActionResult> AddPlayerAsync(AddPlayerRequest request, CancellationToken cancellationToken = default)
+        {
+            var player = await _playerService.CreatePlayerAsync(request.MapToDto(), cancellationToken);
 
             return Ok(player);
         }
