@@ -43,11 +43,27 @@ namespace BeyondSports.Assessment.API.Controllers
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(ApiResult<PlayerResponseDto>), (int)System.Net.HttpStatusCode.OK)]
-        public async Task<IActionResult> AddPlayerAsync(AddPlayerRequest request, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> AddPlayerAsync([FromBody] PlayerRequestModel request, CancellationToken cancellationToken = default)
         {
-            var player = await _playerService.CreatePlayerAsync(request.MapToDto(), cancellationToken);
+            var player = await _playerService.CreatePlayerAsync(request.MapToCreateDto(), cancellationToken);
 
             return Ok(player);
+        }
+
+        /// <summary>
+        /// update a player
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        [HttpPut("{id:int}")]
+        [ProducesResponseType(typeof(ApiResult<PlayerResponseDto>), (int)System.Net.HttpStatusCode.OK)]
+        public async Task<IActionResult> UpdatePlayerAsync([FromRoute] uint id, [FromBody] PlayerRequestModel request, CancellationToken cancellationToken = default)
+        {
+            await _playerService.UpdatePlayerAsync(request.MapToUpdateDto(id), cancellationToken);
+
+            return Ok();
         }
     }
 }

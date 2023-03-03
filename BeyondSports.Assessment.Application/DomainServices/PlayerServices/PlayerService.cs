@@ -35,5 +35,19 @@ namespace BeyondSports.Assessment.Application.DomainServices.PlayerServices
 
             return new PlayerResponseDto(player);
         }
+
+        public async Task UpdatePlayerAsync(UpdatePlayerRequestDto requestDto, CancellationToken cancellationToken = default)
+        {
+            var player = await _playerReporitory.GetPlayerAsync(requestDto.Id, cancellationToken);
+            if (player is null)
+                throw new NotFoundException("Player is not found");
+
+
+            player.HeightInCentimeter = requestDto.HeightInCentimeter;
+            player.BirthDate = requestDto.BirthDate;
+            player.Name = requestDto.Name;
+
+            await _playerReporitory.UpdatePlayerAsync(player, cancellationToken);
+        }
     }
 }
