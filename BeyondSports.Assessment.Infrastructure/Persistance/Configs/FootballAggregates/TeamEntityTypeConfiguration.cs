@@ -13,6 +13,7 @@ namespace BeyondSports.Assessment.Infrastructure.Persistance.Configs.FootballAgg
     {
         public void Configure(EntityTypeBuilder<Team> builder)
         {
+            builder.HasKey(x => x.Id);
             builder.HasMany(i => i.PlayerInTransfers).WithOne(i => i.ToTeam).HasForeignKey(i => i.ToTeamId).OnDelete(DeleteBehavior.NoAction);
             builder.HasMany(i => i.PlayerOutTransfers).WithOne(i => i.FromTeam).HasForeignKey(i => i.FromTeamId).OnDelete(DeleteBehavior.NoAction);
         }

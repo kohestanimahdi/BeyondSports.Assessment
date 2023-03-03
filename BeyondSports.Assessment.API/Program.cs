@@ -1,5 +1,6 @@
 
 using BeyondSports.Assessment.API.Configuration;
+using BeyondSports.Assessment.API.Configuration.Middlewares;
 using BeyondSports.Assessment.Infrastructure.Persistance;
 
 namespace BeyondSports.Assessment.Application
@@ -30,12 +31,10 @@ namespace BeyondSports.Assessment.Application
 
             app.IntializeDatabase();
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+            app.WithCustomExceptionHandler();
+
+            app.UseSwagger();
+            app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
 

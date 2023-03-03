@@ -1,4 +1,5 @@
-﻿using BeyondSports.Assessment.Application.DomainServices.TeamServices;
+﻿using BeyondSports.Assessment.Application.DomainServices.PlayerServices;
+using BeyondSports.Assessment.Application.DomainServices.TeamServices;
 using BeyondSports.Assessment.Infrastructure.Persistance;
 using BeyondSports.Assessment.Infrastructure.Persistance.DataInitializer;
 using BeyondSports.Assessment.Infrastructure.Persistance.UnitOfWorks;
@@ -47,6 +48,7 @@ namespace BeyondSports.Assessment.API.Configuration
         public static IServiceCollection WithDomainServices(this IServiceCollection services)
         {
             services.AddScoped<ITeamService, TeamService>();
+            services.AddScoped<IPlayerService, PlayerService>();
 
             services.WithReporitories();
 

@@ -1,5 +1,7 @@
-﻿using BeyondSports.Assessment.Application.DomainServices.Common.Dtos;
+﻿using BeyondSports.Assessment.API.Configuration.Filters;
+using BeyondSports.Assessment.Application.DomainServices.Common.Dtos;
 using BeyondSports.Assessment.Application.DomainServices.TeamServices;
+using BeyondSports.Assessment.Domain.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +9,7 @@ namespace BeyondSports.Assessment.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiResultFilter]
     public class TeamsController : ControllerBase
     {
         private readonly ITeamService _teamService;
@@ -16,8 +19,13 @@ namespace BeyondSports.Assessment.API.Controllers
             _teamService = teamService;
         }
 
+        /// <summary>
+        /// get the list of the teams
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         [HttpGet]
-        [ProducesResponseType(typeof(List<TeamResponseDto>), (int)System.Net.HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ApiResult<List<TeamResponseDto>>), (int)System.Net.HttpStatusCode.OK)]
         public async Task<IActionResult> GetTeamsAsync(CancellationToken cancellationToken = default)
         {
             var teams = await _teamService.GetTeamsAsync(cancellationToken);
@@ -25,9 +33,16 @@ namespace BeyondSports.Assessment.API.Controllers
             return Ok(teams);
         }
 
+
+        /// <summary>
+        /// get the list of the players of specific team
+        /// </summary>
+        /// <param name="teamId"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{teamId}/Players")]
-        [ProducesResponseType(typeof(List<PlayerResponseDto>), (int)System.Net.HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ApiResult<List<PlayerResponseDto>>), (int)System.Net.HttpStatusCode.OK)]
         public async Task<IActionResult> GetPlayersOfTeamAsync([FromRoute] uint teamId, CancellationToken cancellationToken = default)
         {
             var players = await _teamService.GetPlayersOfTeamAsync(teamId, cancellationToken);

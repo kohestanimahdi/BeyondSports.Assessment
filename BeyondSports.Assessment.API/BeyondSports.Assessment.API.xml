@@ -4,5 +4,28 @@
         <name>BeyondSports.Assessment.API</name>
     </assembly>
     <members>
+        <member name="M:BeyondSports.Assessment.API.Controllers.PlayersController.GetPlayerAsync(System.UInt32,System.Threading.CancellationToken)">
+            <summary>
+            get the player by id
+            </summary>
+            <param name="id"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeyondSports.Assessment.API.Controllers.TeamsController.GetTeamsAsync(System.Threading.CancellationToken)">
+            <summary>
+            get the list of the teams
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BeyondSports.Assessment.API.Controllers.TeamsController.GetPlayersOfTeamAsync(System.UInt32,System.Threading.CancellationToken)">
+            <summary>
+            get the list of the players of specific team
+            </summary>
+            <param name="teamId"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

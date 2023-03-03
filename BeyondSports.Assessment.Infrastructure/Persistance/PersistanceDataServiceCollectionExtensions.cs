@@ -13,7 +13,7 @@ namespace BeyondSports.Assessment.Infrastructure.Persistance
         public static IServiceCollection WithReporitories(this IServiceCollection services)
         {
             services.AddScoped<ITeamRepository, TeamRepository>();
-
+            services.AddScoped<IPlayerReporitory, PlayerReporitory>();
             return services;
         }
     }
