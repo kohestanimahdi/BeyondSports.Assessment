@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeyondSports.Assessment.Inf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeyondSports.Assessment.Application", "BeyondSports.Assessment.Application\BeyondSports.Assessment.Application.csproj", "{479ED232-00F8-4C82-BE65-19639B9517D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeyondSports.Assessment.Tests", "BeyondSports.Assessment.Tests\BeyondSports.Assessment.Tests.csproj", "{11D11A8B-4BB5-4708-893C-97FDA736BA28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{479ED232-00F8-4C82-BE65-19639B9517D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{479ED232-00F8-4C82-BE65-19639B9517D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{479ED232-00F8-4C82-BE65-19639B9517D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D11A8B-4BB5-4708-893C-97FDA736BA28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D11A8B-4BB5-4708-893C-97FDA736BA28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D11A8B-4BB5-4708-893C-97FDA736BA28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D11A8B-4BB5-4708-893C-97FDA736BA28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
