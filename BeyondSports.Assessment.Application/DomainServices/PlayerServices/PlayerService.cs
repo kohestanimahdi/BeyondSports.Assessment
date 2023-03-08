@@ -42,7 +42,6 @@ namespace BeyondSports.Assessment.Application.DomainServices.PlayerServices
             if (player is null)
                 throw new NotFoundException("Player is not found");
 
-
             player.HeightInCentimeter = requestDto.HeightInCentimeter;
             player.BirthDate = requestDto.BirthDate;
             player.Name = requestDto.Name;
